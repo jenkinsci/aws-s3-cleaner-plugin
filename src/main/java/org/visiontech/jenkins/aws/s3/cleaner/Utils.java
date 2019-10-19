@@ -1,4 +1,4 @@
-package org.visiontech.jenkins.aws.beanstalk.releaser;
+package org.visiontech.jenkins.aws.s3.cleaner;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.ClientConfigurationFactory;
@@ -7,6 +7,7 @@ import hudson.util.FormValidation;
 import hudson.util.ListBoxModel;
 import jenkins.model.Jenkins;
 import org.apache.commons.lang.StringUtils;
+import org.visiontech.jenkins.aws.s3.cleaner.Messages;
 
 public class Utils {
 

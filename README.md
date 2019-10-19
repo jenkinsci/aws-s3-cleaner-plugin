@@ -1,3 +1,3 @@
-# AWSBeanstalkReleaser
+# AWS S3 Cleaner
 
-Plugin to manage/release application versions on your AWSEB Environments
+Plugin to clean your S3 Buckets

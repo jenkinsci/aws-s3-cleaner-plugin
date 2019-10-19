@@ -1,4 +1,4 @@
-package org.visiontech.jenkins.aws.beanstalk.releaser;
+package org.visiontech.jenkins.aws.s3.cleaner;
 
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
@@ -41,6 +41,7 @@ import org.apache.commons.collections.ListUtils;
 import org.apache.commons.lang.StringUtils;
 import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.AncestorInPath;
+import org.visiontech.jenkins.aws.s3.cleaner.Messages;
 
 public class AWSS3CleanerBuilder extends Builder implements SimpleBuildStep {
 
