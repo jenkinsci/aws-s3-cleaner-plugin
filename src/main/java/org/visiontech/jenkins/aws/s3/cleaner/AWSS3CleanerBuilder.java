@@ -36,6 +36,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import jenkins.model.Jenkins;
 import jenkins.tasks.SimpleBuildStep;
 import org.apache.commons.collections.ListUtils;
 import org.apache.commons.lang.StringUtils;
@@ -108,14 +109,14 @@ public class AWSS3CleanerBuilder extends Builder implements SimpleBuildStep {
     @Extension
     public static final class DescriptorImpl extends BuildStepDescriptor<Builder> {
 
-        public FormValidation doCheckCredentialId(@QueryParameter String value, @AncestorInPath ItemGroup context) throws IOException, ServletException {
-
+        public FormValidation doCheckCredentialId(@QueryParameter String value, @AncestorInPath Item owner) throws IOException, ServletException {
+            owner.checkPermission(Item.CONFIGURE);            
             if (StringUtils.isBlank(value)) {
                 return FormValidation.error(Messages.AWSS3CleanerBuilder_DescriptorImpl_errors_missingValue());
             }
 
             AmazonIdentityManagementClientBuilder builder = AmazonIdentityManagementClientBuilder.standard();
-            builder.withCredentials(AWSCredentialsHelper.getCredentials(value, context));
+            builder.withCredentials(AWSCredentialsHelper.getCredentials(value, owner.getParent()));
             builder.withClientConfiguration(Utils.getClientConfiguration());
 
             AmazonIdentityManagement iam = builder.build();
