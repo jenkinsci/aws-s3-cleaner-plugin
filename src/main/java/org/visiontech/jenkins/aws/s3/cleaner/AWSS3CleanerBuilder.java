@@ -19,7 +19,6 @@ import hudson.Extension;
 import hudson.FilePath;
 import hudson.util.FormValidation;
 import hudson.model.AbstractProject;
-import hudson.model.ItemGroup;
 import hudson.model.Item;
 import hudson.model.Run;
 import hudson.model.TaskListener;
@@ -36,13 +35,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import jenkins.model.Jenkins;
 import jenkins.tasks.SimpleBuildStep;
 import org.apache.commons.collections.ListUtils;
 import org.apache.commons.lang.StringUtils;
 import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.AncestorInPath;
-import org.visiontech.jenkins.aws.s3.cleaner.Messages;
 
 public class AWSS3CleanerBuilder extends Builder implements SimpleBuildStep {
 
